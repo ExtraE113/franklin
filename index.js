@@ -8,18 +8,8 @@ try {
     const time = (new Date()).toTimeString();
     core.setOutput("time", time);
     // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github.context.payload, undefined, 2)
+    const payload = JSON.stringify(github.context.payload["commits"], undefined, 2)
     console.log(`The event payload: ${payload}`);
-    const test = JSON.stringify(github.context.graphql(
-        `query ($login: String!) {
-    organization(login: $login) {
-      repositories(privacy: PRIVATE) {
-        totalCount
-      }
-    }
-  }`
-    ), undefined, 2)
-    console.log(`The test string: ${test}`);
 } catch (error) {
     core.setFailed(error.message);
 }

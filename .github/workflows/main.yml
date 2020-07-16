@@ -11,6 +11,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 2
+        run: git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
       - name: Hello world action step
         uses: ./ # Uses an action in the root directory
         id: hello
