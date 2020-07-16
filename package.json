@@ -16,9 +16,13 @@
   "bugs": {
     "url": "https://github.com/ExtraE113/franklin/issues"
   },
+<<<<<<< HEAD
   "homepage": "https://github.com/ExtraE113/franklin#readme",
   "dependencies": {
     "@actions/core": "^1.2.4",
     "@actions/github": "^4.0.0"
   }
+=======
+  "homepage": "https://github.com/ExtraE113/franklin#readme"
+>>>>>>> ba850629b3d27c4b03e972ff9d907e6eae1b797f
 }
