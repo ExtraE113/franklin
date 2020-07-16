@@ -12,12 +12,14 @@ jobs:
         with:
           fetch-depth: 2
       - name: diff
-        run: git diff --name-only --diff-filter=AM ${{ github.event.before }} ${{ github.sha }}
+          run: git diff ${{ github.event.before }} ${{ github.sha }}
+      - name: diff2
+          run: echo git diff ${{ github.event.before }} ${{ github.sha }}
       - name: Hello world action step
-        uses: ./ # Uses an action in the root directory
-        id: hello
-        with:
-          who-to-greet: 'Mona the Octocat'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+          uses: ./ # Uses an action in the root directory
+          id: hello
+          with:
+            who-to-greet: 'Mona the Octocat'
+          # Use the output from the `hello` step
+          - name: Get the output time
+            run: echo "The time was ${{ steps.hello.outputs.time }}"
